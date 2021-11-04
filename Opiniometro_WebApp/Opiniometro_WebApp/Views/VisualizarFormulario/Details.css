@@ -1,0 +1,67 @@
+﻿mark {
+    font-size: 18px;
+    color: inherit;
+    background-color: transparent;
+    padding: 0px;
+    font-weight: bold;
+}
+
+#infoCursoFormulario {
+    display: none;
+    color: black;
+    display: flex;
+}
+
+.infoCursoDerecha, .infoCursoIzquierda, mark, p, h1, h2{
+    font-size: 18px;
+}
+
+#principal, #secundaria {
+    flex-direction: column;
+}
+
+#secundaria {
+    margin-left: 43%;
+}
+
+#principal {
+    margin-left: 14px;
+    margin-bottom: 15px;
+}
+
+#secundaria > p, #secundaria > mark {
+    text-align: right;
+}
+
+#sigla {
+    display: inline;
+}
+
+.infoCursoIzquierda, .infoCursoDerecha {
+    display: block;
+    width: 50%;
+}
+
+.panel-group {
+    margin-right: 100px;
+}
+
+.contenedorGrafo {
+    min-width: 200px;
+    min-height: 100px;
+    max-width: 800px;
+    max-height: 400px;
+    border: 0px solid #ddd;
+    overflow: hidden;
+    padding: 1px;
+    border-radius: 4px;
+}
+
+.seccion, .pregunta, .observaciones {
+    text-decoration: none;
+    color: black;
+}
+
+    .seccion:hover, .seccion:focus, .pregunta:hover, .pregunta:focus, .observaciones:hover, .observaciones:focus {
+        color: black;
+    }

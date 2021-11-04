@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Opiniometro_WebApp.Models.Formulario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("~\\Views\\Shared\\Auth\\BarraLogin.cshtml")
+
+@{string perfil_actual = Opiniometro_WebApp.Controllers.Servicios.IdentidadManager.obtener_perfil_actual(); }
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filtros {
+            display: flex;
+            justify-content: space-between;
+            width: 1000px
+        }
+
+        #titulo_formularios {
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .formularios {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lista_formularios {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .filtrar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5px;
+        }
+
+        .button-like {
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+            border: solid;
+            border-color: #ccc;
+            border-radius: 4px;
+            border-width: 1px;
+            padding: 6px 12px;
+            margin: 2px;
+            margin-right:10%;
+        }
+
+            .button-like:hover, .button-like:focus{
+                color: black;
+                text-decoration: none;
+            }
+
+
+    </style>
+    <div class="container">
+
+        <div class="filtros">
+            @if (perfil_actual == "Administrador")
+            {
+                <p><label>Código de Formulario</label>@Html.DropDownList("CodigoID", null, "<Seleccione el Codigo>", new { @class = "form-control", @onChange = "document.getElementById('selectcodigo').value = this.value; this.form.submit();" })</p>
+                //<p><label>Profesor&nbsp;</label> @Html.DropDownList("ProfesorID", null, "<Seleccione Profesor>", new { @class = "form-control", @onChange = "document.getElementById('selecprofe').value = this.value; this.form.submit();" })</p>
+            }
+        </div>
+
+        <div class="filtros">
+            <p><label>Carrera&nbsp;</label> @Html.DropDownList("CarreraNombre", null, "<Seleccione Carrera>", new { @class = "form-control", @onChange = "document.getElementById('selectcarrera').value = this.value; this.form.submit();" })</p>
+            <p><label>Curso&nbsp;</label> @Html.DropDownList("CursoID", null, "<Seleccione Curso>", new { @class = "form-control", @onChange = "document.getElementById('selectcurso').value = this.value; this.form.submit();" })</p>
+            <p><label>Profesor&nbsp;</label> @Html.DropDownList("ProfesorID", null, "<Seleccione Profesor>", new { @class = "form-control", @onChange = "document.getElementById('selecid').value = this.value; this.form.submit();" })</p>
+        </div>
+        <div class="filtros">
+            <p><label>Ciclo&nbsp;</label>@Html.DropDownList("SemestreId", null, "<Seleccione el Semestre>", new { @class = "form-control", @onChange = "document.getElementById('selectsemestre').value = this.value; this.form.submit();" })</p>
+            <p><label>Año&nbsp;</label>@Html.DropDownList("AnnoId", null, "<Seleccione Año>", new { @class = "form-control", @onChange = "document.getElementById('selectanno').value = this.value; this.form.submit();" })</p>
+            <p><label>Grupo&nbsp;</label>@Html.DropDownList("GrupoID", null, "<Seleccione Grupo>", new { @class = "form-control", @onChange = "document.getElementById('selecgrupo').value = this.value; this.form.submit();" })</p>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            if (perfil_actual == "Administrador")
+            {
+                @Html.Hidden("selectcodigo", null)
+                @Html.Hidden("selecid", null)
+                //@Html.Hidden("selecprofe", null)
+            }
+            @Html.Hidden("selectcarrera", null)
+            @Html.Hidden("selectcurso", null)
+            @Html.Hidden("selectsemestre", null)
+            @Html.Hidden("selectanno", null)
+            @Html.Hidden("selecgrupo", null)
+            <p><label>&nbsp;</label><br /><input type="submit" value="Filtrar" class="btn btn-default" /></p>
+        }
+
+
+
+        <p id="titulo_formularios">Formularios</p>
+
+        <div class="formularios">
+
+            @{string formulario_actual = ""; List<string> formularios = new List<string>(); bool formulario_repetido = false;}
+
+            @foreach (var item in Model)
+            {
+                formulario_actual = item.CodigoFormulario;
+
+                if (formularios.Contains(formulario_actual))
+                { formulario_repetido = true; }
+                else
+                {
+                    formularios.Add(formulario_actual);
+                    formulario_repetido = false;
+                }
+
+                if (formulario_repetido == false)
+                {
+                    <div class="lista_formularios">
+                        <p id="nombre_formulario">@Html.DisplayFor(modelItem => item.Nombre)</p>
+                       @Html.ActionLink("Visualizar formulario", "Details", new { id = item.CodigoFormulario }, new { @class = "button-like" })
+                    </div>
+                }
+            }
+        </div>
+    </div>

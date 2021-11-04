@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cargar Archivo</title>
+</head>
+<body>
+    @using (Html.BeginForm("CargarArchivo", "Administrador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <!--span>Select File:</span-->
+        <input type="file" name="postedFile" />
+        <br />
+        <input type="submit" value="Cargar" class="btn btn-default" />
+        <br />
+        <span style="color:green">@ViewBag.Message</span>
+    }
+</body>
+</html>
+
+
+

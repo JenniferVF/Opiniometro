@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Opiniometro_WebApp.Models.Formulario_Respuesta>
+
+<table class="table">
+    <tr>
+        <th>
+            Formularios
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formulario.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Formulario.CodigoFormulario })
+            </td>
+        </tr>
+    }
+
+</table>  

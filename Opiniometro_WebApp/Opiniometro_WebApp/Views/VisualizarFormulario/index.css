@@ -1,0 +1,32 @@
+﻿.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px
+}
+
+#titulo_formularios {
+    font-size: large;
+    font-weight: bold;
+}
+
+.formularios {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista_formularios {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filtrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5px;
+}

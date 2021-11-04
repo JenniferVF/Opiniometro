@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniómetro@UCR</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/estilos-propios.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <!--Barra-->
+    @Html.Partial("~\\Views\\Shared\\Auth\\BarraLogin.cshtml")
+    @using Opiniometro_WebApp.Controllers.Servicios;
+
+
+    @if (IdentidadManager.usuario_loggeado() == true)
+    {
+    var permisos_usuario = (IdentidadManager)Session[IdentidadManager.obtener_correo_actual()];
+
+        <nav class="navbar navbar-opiniometro-ternaria navbar-fixed-top" style="margin-top:90px; z-index:999">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/" style="margin-left:90px">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Perfiles<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Cambiar perfil actual", "Cambiar", "Perfil")</li>
+                            <li class="disabled"><a id="link_deshabilitado">Asignar/Revocar permisos</a></li>
+                            @{
+                                if (permisos_usuario.verificar_permiso(IdPermiso.CREAR_PERFIL))
+                                {
+                                    <li>@Html.ActionLink("Crear perfil", "Crear", "Perfil")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Crear perfil</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso(IdPermiso.VER_INFORMACION_PERSONAS))
+                                {
+                                    <li>@Html.ActionLink("Ver perfiles", "VerPerfiles", "Perfil")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Ver información de personas</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso(IdPermiso.ELIMINAR_PERFILES))
+                                {
+                                    <li>@Html.ActionLink("Borrar perfil", "Borrar", "Perfil")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Borrar perfil</a></li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @{
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.VER_INFORMACION_PERSONAS))
+                                {
+                                    <li>@Html.ActionLink("Ver información de personas", "VerPersonas", "Admin")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Ver información de personas</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.INSERTAR_USUARIO))
+                                {
+                                    <li>@Html.ActionLink("Insertar usuario", "CrearUsuario", "Admin")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Insertar usuario</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.INSERTAR_USUARIO))
+                                {
+                                    <li>@Html.ActionLink("Cargar Archivo", "CargarArchivo", "Administrador")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Cargar Archivo</a></li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evaluaciones<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            @{
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.INSERTAR_FORMULARIO))
+                                {
+                                    <li>@Html.ActionLink("Insertar formulario", "Index", "Formulario")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Insertar formulario</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.ASIGNAR_FORMUALRIO))
+                                {
+                                    <li>@Html.ActionLink("Asignar formulario", "Index", "AsignarFormularios")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Asignar formulario</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.VISUALIZAR_RESULTADOS_DE_EVALUACIONES))
+                                {
+                                    <li>@Html.ActionLink("Visualizar resultados de evaluaciones", "Index", "VisualizarFormulario")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Visualizar resultados de evaluaciones</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.VER_SECCIONES))
+                                {
+                                    <li>@Html.ActionLink("Sección", "Index", "Seccion")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Sección</a></li>
+                                }
+
+                                if (permisos_usuario.verificar_permiso("SC-01234", 0, IdPermiso.VER_ITEMS))
+                                {
+                                    <li>@Html.ActionLink("Ítem", "Index", "Item")</li>
+                                }
+                                else
+                                {
+                                    <li class="disabled"><a id="link_deshabilitado">Ítem</a></li>
+                                }
+                            }
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li style="margin-right:90px">@Html.ActionLink("Cerrar sesión", "CerrarSesion", "Auth")</li>
+            </ul>
+        </div>
+    </nav>
+    }
+
+    <div class="container-fluid" style="margin-left:100px">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Opiniometro@UCR</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
