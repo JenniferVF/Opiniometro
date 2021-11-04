@@ -1,0 +1,33 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Tiene_Grupo_Formulario]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column Numero in table [dbo].[Tiene_Grupo_Formulario] is currently  CHAR (6) NOT NULL but is being changed
+         to  TINYINT NOT NULL. Data loss could occur.
+
+** User actions
+     Rename
+       [dbo].[Tiene_Grupo_Formulario].[SiglaCurso] (Column)
+       [dbo].[Tiene_Grupo_Formulario].[Numero] (Column)
+       [dbo].[Tiene_Grupo_Formulario].[SiglaCurso] (Column)
+     Drop
+       [dbo].[FK_Tie_Gru] (Foreign Key)
+     Table rebuild
+       [dbo].[Tiene_Grupo_Formulario] (Table)
+     Create
+       [dbo].[FK_Tie_Gru] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_Tie_Fec] (Foreign Key)
+       [dbo].[FK_Tie_For] (Foreign Key)
+     Create
+       [dbo].[FK_Tie_Fec] (Foreign Key)
+       [dbo].[FK_Tie_For] (Foreign Key)
+
+The type for column Numero in table [dbo].[Tiene_Grupo_Formulario] is currently  CHAR (6) NOT NULL but is being changed to  TINYINT NOT NULL. Data loss could occur.
+

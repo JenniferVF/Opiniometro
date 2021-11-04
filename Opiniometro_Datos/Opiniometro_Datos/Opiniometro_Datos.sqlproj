@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Opiniometro_Datos</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{f85b8882-e9ed-471a-95db-5637eae0c635}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Opiniometro_Datos</RootNamespace>
+    <AssemblyName>Opiniometro_Datos</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>Opiniometro_Datos.dbo</DefaultSchema>
+    <GenerateCreateScript>True</GenerateCreateScript>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Opiniometro_Datos.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+    <None Include="Script.InformacionDeFormulario.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Usuario.sql" />
+    <Build Include="Persona.sql" />
+    <Build Include="Perfil.sql" />
+    <Build Include="Profesor.sql" />
+    <Build Include="Estudiante.sql" />
+    <Build Include="Administrativo.sql" />
+    <Build Include="Permiso.sql" />
+    <Build Include="Telefono_Persona.sql" />
+    <Build Include="Posee_Enfasis_Perfil_Permiso.sql" />
+    <Build Include="Empadronado.sql" />
+    <Build Include="Imparte.sql" />
+    <Build Include="Matricula.sql" />
+    <Build Include="Formulario_Respuesta.sql" />
+    <Build Include="Responde.sql" />
+    <Build Include="Unidad_Academica.sql" />
+    <Build Include="Ciclo_Lectivo.sql" />
+    <Build Include="Facultad.sql" />
+    <Build Include="Carrera.sql" />
+    <Build Include="Curso.sql" />
+    <Build Include="Enfasis.sql" />
+    <Build Include="Grupo.sql" />
+    <Build Include="Escuela.sql" />
+    <Build Include="Fecha_Corte.sql" />
+    <Build Include="Tiene_Grupo_Formulario.sql" />
+    <Build Include="Formulario.sql" />
+    <Build Include="Seccion.sql" />
+    <Build Include="Fecha_Corte.sql" />
+    <Build Include="Conformado_Item_Sec_Form.sql" />
+    <Build Include="Texto_Libre.sql" />
+    <Build Include="Item.sql" />
+    <Build Include="Seleccion_Unica.sql" />
+    <None Include="ScriptNuevaPersonaUsuario.sql" />
+    <None Include="FiltrarUsuarios.sql" />
+    <None Include="Script.EliminarPersona.sql" />
+    <Build Include="Tiene_Usuario_Perfil_Enfasis.sql" />
+    <Build Include="Canton.sql" />
+    <Build Include="Distrito.sql" />
+    <Build Include="Provincia.sql" />
+    <Build Include="Direccion_Persona.sql" />
+    <Build Include="SP_ObtenerFormulario.sql" />
+    <Build Include="Seleccion_Multiple.sql" />
+    <Build Include="Opciones_De_Respuestas_Seleccion_Unica.sql" />
+    <Build Include="Escalar.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScriptGenerarContrasena.sql" />
+    <Build Include="Categoria.sql" />
+    <Build Include="Opciones_De_Respuestas_Seleccion_Multiple.sql" />
+    <Build Include="Se_Encuentra_Curso_Enfasis.sql" />
+    <None Include="Opiniometro_Datos.publish.xml" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\bin\Debug\Opiniometro_Datos.dacpac
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\bin\Debug\Opiniometro_Datos.dll
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\bin\Debug\Opiniometro_Datos.pdb
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\obj\Debug\Opiniometro_Datos.sqlprojAssemblyReference.cache
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\obj\Debug\Opiniometro_Datos.dll
+C:\Users\Adrian Vargas\Source\Repos\Opiniometro-UCR\Opiniometro_Datos\Opiniometro_Datos\obj\Debug\Opiniometro_Datos.pdb
