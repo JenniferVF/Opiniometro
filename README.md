@@ -1,1 +1,2 @@
-# Opiniometro-UCR
+# Calidad de Software
+Proyecto: Opiniometro UCR
